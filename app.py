@@ -40,7 +40,7 @@ def parse(event):
 
 def get_events(location_id, date):
     events = []
-    params = {"businessUnitId": location_id, "targetDate": date, "span": "week"}
+    params = {"businessUnitId": location_id, "targetDate": date.strftime("%x"), "span": "week"}
     response = requests.get(SCHEDULE_API, params=params)
     data = response.json()
     for day, day_events in data['Result']['Data']['CalendarEventDatesResult']['EventDates'].items():
@@ -63,8 +63,8 @@ def schedule(location):
     else:
         return f"location {location} is unknown", 500
 
-    today = arrow.now().strftime("%x")
-    next_week = arrow.now().replace(weeks=1).strftime("%x")
+    today = arrow.now()
+    next_week = arrow.now().replace(weeks=1)
     events = [parse(event) for date in [today, next_week] for event in get_events(location_id, date)]
 
     cal = Calendar()
@@ -80,7 +80,7 @@ def schedule(location):
         cal.add_component(cal_event)
 
     return send_file(BytesIO(cal.to_ical()),
-        attachment_filename='thomas-circle.ics',
+        attachment_filename=f'{location}.ics',
         mimetype='text/calendar')
 
 if __name__ == "__main__":
