@@ -9,6 +9,9 @@ app = Flask(__name__)
 
 SCHEDULE_API = "https://balancegym.mosomyclub.com/api/1.0/calendarevents/eventspan/"
 
+# https://balancegym.mosomyclub.com/api/1.0/calendarevents/locations
+# https://balancegym.mosomyclub.com/api/1.0/calendarevents/categories
+
 def date_to_ical_date(date):
     return date.format('YYYYMMDD') + 'T' + date.format('HHmmss') + 'Z'
 
@@ -46,10 +49,18 @@ def get_events(location_id, date):
 @app.route("/<location>.ics")
 def schedule(location):
 
-    if location == "thomas-circle":
+    if location == 'thomas-circle':
         location_id = 1
+    elif location == 'glover-park':
+        location_id = 2
+    elif location == 'foggy-bottom'
+        location_id = 3
+    elif location == 'bethesda'
+        location_id = 4
+    elif location == 'capitol-hill':
+        location_id = 9
     else:
-        raise Exception(f"location {location} is unknown")
+        return f"location {location} is unknown"), 500
 
     today = arrow.now().strftime("%x")
     next_week = arrow.now().replace(weeks=1).strftime("%x")

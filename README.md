@@ -1,5 +1,11 @@
 # balance-gym-ical
 
+- https://balance-gym-ical.herokuapp.com/thomas-circle.ics
+- https://balance-gym-ical.herokuapp.com/glover-park.ics
+- https://balance-gym-ical.herokuapp.com/foggy-bottom.ics
+- https://balance-gym-ical.herokuapp.com/bethesda.ics
+- https://balance-gym-ical.herokuapp.com/capitol-hill.ics
+
 ### Setup
 ```
 mkvirtualenv -p python3 -r requirements.txt balance-gym-ical
@@ -9,4 +15,9 @@ mkvirtualenv -p python3 -r requirements.txt balance-gym-ical
 ```
 workon balance-gym-ical
 python app.py
+```
+
+### Heroku
+```
+heroku apps:create balance-gym-ical
 ```
