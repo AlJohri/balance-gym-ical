@@ -27,3 +27,7 @@ heroku apps:create balance-gym-ical # first time only
 heroku git:remote --app corepower-yoga-ical
 git push heroku master
 ```
+
+## Source
+
+- https://balancegym.mosomyclub.com/class-schedules.aspx
