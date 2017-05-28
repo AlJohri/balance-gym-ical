@@ -63,9 +63,14 @@ def schedule(location):
     else:
         return f"location {location} is unknown", 500
 
-    today = arrow.now()
-    next_week = arrow.now().replace(weeks=1)
-    events = [parse(event) for date in [today, next_week] for event in get_events(location_id, date)]
+    today = arrow.get(arrow.utcnow().date())
+
+    dates = [
+        today,
+        today.replace(weeks=1)
+    ]
+
+    events = [parse(event) for date in dates for event in get_events(location_id, date)]
 
     cal = Calendar()
     for event in events:

@@ -23,5 +23,7 @@ python app.py
 
 ### Heroku
 ```
-heroku apps:create balance-gym-ical
+heroku apps:create balance-gym-ical # first time only
+heroku git:remote --app corepower-yoga-ical
+git push heroku master
 ```
