@@ -1,10 +1,14 @@
 # balance-gym-ical
 
+## iCal Links
+
 - https://balance-gym-ical.herokuapp.com/thomas-circle.ics
 - https://balance-gym-ical.herokuapp.com/glover-park.ics
 - https://balance-gym-ical.herokuapp.com/foggy-bottom.ics
 - https://balance-gym-ical.herokuapp.com/bethesda.ics
 - https://balance-gym-ical.herokuapp.com/capitol-hill.ics
+
+## Development
 
 ### Setup
 ```
