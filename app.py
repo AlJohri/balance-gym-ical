@@ -60,7 +60,7 @@ def schedule(location):
     elif location == 'capitol-hill':
         location_id = 9
     else:
-        return f"location {location} is unknown"), 500
+        return f"location {location} is unknown", 500
 
     today = arrow.now().strftime("%x")
     next_week = arrow.now().replace(weeks=1).strftime("%x")
