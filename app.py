@@ -53,7 +53,7 @@ def schedule(location):
         location_id = 1
     elif location == 'glover-park':
         location_id = 2
-    elif location == 'foggy-bottom'
+    elif location == 'foggy-bottom':
         location_id = 3
     elif location == 'bethesda':
         location_id = 4
