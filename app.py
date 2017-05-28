@@ -11,6 +11,7 @@ SCHEDULE_API = "https://balancegym.mosomyclub.com/api/1.0/calendarevents/eventsp
 
 # https://balancegym.mosomyclub.com/api/1.0/calendarevents/locations
 # https://balancegym.mosomyclub.com/api/1.0/calendarevents/categories
+# https://balancegym.mosomyclub.com/api/1.0/calendarevents/eventspan?businessUnitId=1&targetDate=5/28/2017&span=week
 
 def date_to_ical_date(date):
     return date.format('YYYYMMDD') + 'T' + date.format('HHmmss') + 'Z'
@@ -73,7 +74,9 @@ def schedule(location):
         cal_event['dtstart'] = date_to_ical_date(event['start_date'])
         cal_event['dtend'] = date_to_ical_date(event['end_date'])
         cal_event['summary'] = event['name']
+        cal_event['description'] = event['instructor']
         cal_event['location'] = event['room']
+        cal_event['categories'] = event['category']
         cal.add_component(cal_event)
 
     return send_file(BytesIO(cal.to_ical()),
